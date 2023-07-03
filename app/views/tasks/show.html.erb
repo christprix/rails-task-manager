@@ -1,8 +1,13 @@
 <h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<%= link_to "Delete",
+<div class="my-3 p-4" style="background-color: whitesmoke;">
+  <p><%= @task.details %></p>
+</div>
+<div class="text-center">
+  <%= link_to 'Edit task', edit_path, class: "btn btn-primary w-25" %>
+  <%= link_to "Delete",
   task_path(@task),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
-<%= link_to 'Edit task', edit_path %>
-<%= link_to 'Back to Tasks', tasks_path %>
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+  class: "btn btn-primary w-25"
+  %>
+  <%= link_to 'Back to Tasks', tasks_path, class: "btn btn-primary w-25" %>
+</div>

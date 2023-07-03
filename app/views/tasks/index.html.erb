@@ -1,6 +1,10 @@
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task) %></li>
-  <% end %>
+<ul style="list-style-type:none;">
+    <% @tasks.each do |task| %>
+      <% if task.completed? %>
+        <h3><li><i class="fa-regular fa-square-check"></i><%= link_to task.title, task_path(task), class: "btn btn-outline-dark w-25 mx-3" %></h3></li>
+      <% else %>
+        <h3><li><i class="fa-regular fa-square"></i><%= link_to task.title, task_path(task), class: "btn btn-outline-dark w-25 mx-3" %></h3></li>
+      <% end %>
+    <% end %>
+  <%= link_to 'Add task', new_task_path, class: "btn btn-primary" %>
 </ul>
-<%= link_to 'Add task', new_task_path %>
